@@ -1,0 +1,50 @@
+.div_login {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.div_login .field-wrap{
+    padding-bottom: 4%;
+}
+
+.div_login .field-wrap input{
+    font-size: 7vw;
+}
+.btn,.btn-link{
+    font-size: 7vw;
+}
+.bsmall{
+    font-size: 5.5vw;
+    color:white;
+}
+.bsmall:hover,.bsmall:focus{
+    color:white;
+}
+.div_login h1{
+    padding-bottom: 3%;
+    color: #2e7bb3;
+}
+
+.login_signup_header{
+    font-size: 9vw;
+}
+
+
+@media screen and (min-width: 430px) {
+
+    .div_login .field-wrap input{
+        font-size: 2.2em;
+    }
+    .btn,.btn-link{
+        font-size: 2.2em;
+    }
+    .bsmall{
+        font-size: 1.7em;
+        color:white;
+    }
+    .login_signup_header{
+        font-size: 2.8em;
+    }
+
+}

@@ -1,0 +1,73 @@
+<div id="home">
+    <div ng-if="isOffline(user.online)" class="off_div">
+        <h1>Are you puffing?</h1>
+        <h2>Share your position</h2>
+        <button type="button" class="btn btn-default change_user_state" ng-click="changeUserState()">
+            <span class="glyphicon glyphicon-bullhorn"></span>
+        </button>
+    </div>
+
+    <div ng-if="isOnline(user.online)" class="on_div">
+        <h1>Have you finished?</h1>
+        <h2>Switch off</h2>
+        <button type="button" class="btn btn-default change_user_state" ng-click="changeUserState()">
+            <span class="glyphicon glyphicon-bullhorn"></span>
+        </button>
+        <div class="portlet-footer">
+            <form role="form" ng-submit="createNewMessage()">
+                <div>
+                    <textarea id="message" class="form-control" placeholder="{{placeholder}}" ng-change="updateNewMessage(myValue)" ng-model="myValue"></textarea>
+                    <button type="submit"  class="btn btn-default pull-right"><span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div ng-if="user.sex==''" class="notifications">
+    <div class="iw-container">
+        <div class="row"> <h1> Select your gender </h1></div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#297add; font-size: 1.3em" ng-click="setSex('male')"><span class="glyphicon glyphicon-king"></span></button>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#ee989a; font-size: 1.3em" ng-click="setSex('female')"><span class="glyphicon glyphicon-queen"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="user.avatar_knowledge" class="notifications" ng-click="user.avatar_knowledge = false">
+    <div class="iw-container">
+        <h1> This is your current avatar ;)</h1>
+        Share your smoking time to level up !!!
+        <br/>
+        <img height="150" ng-src="http://www.reepjyoti.com/puff/app/avatars/{{user.avatar}}.jpg" alt="avatar">
+    </div>
+</div>
+
+<div ng-if="evaluation_flag" class="notifications">
+    <div class="iw-container">
+        <div class="row"> <h1> Have you enjoyed your puffing companion? </h1></div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#297add; font-size: 1.3em" ng-click="evaluate(1)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#ee989a; font-size: 1.3em" ng-click="evaluate(-1)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="newcompanion_flag" class="notifications" ng-click="remove_newcompanion_flag();">
+    <div class="iw-container">
+        {{window_message}}
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row" style="text-align: center; color: white"><p ng-if="noSharedPos"> You have to share the position to see the map</p><div id="map"> </div></div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center">
+            <span id="description" ng-if="(user.puffing_companion=='')&&(user.online)">Click + to join other puffers</span>
+            <ul id="user_items">
+                <li  ng-repeat="us in users | orderBy:distanceSort" ng-if="((us.online)&&(us.$id!=user.$id))">
+                    <a ng-style="colorSex(us.sex)" ng-click="show_hide_info(us.nick,us.avatar,us.sex,us.message)">{{us.nick}}</a>
+                    <button ng-if="((user.puffing_companion.indexOf(us.nick)==-1)&&(user.puffing_companion=='')&&(user.online))" type="button" class="btn btn-default add_puff_comp" ng-click="addUserToPuffingCompanion(us.$id,us.puffing_companion,us.puffing_companion_id,us.nick)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <button ng-if="((user.puffing_companion.indexOf(us.nick)==0))" type="button" class="btn btn-default remove_puff_comp" ng-click="deleteFromOtherUsers();">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <!--        <label ng-if="((user.puffing_companion.indexOf(us.nick)==0))">
+                               <h2>Other Online Users:</h2> </label> -->
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div style="height: 60px"></div>
+</div>
+
+<div ng-if="infowindow" class="notifications" ng-click="show_hide_info(1,2,3,4)">
+    <div>
+        <div class="iw-container-search" ng-style="infosex">
+            <div class="iw-title-search">{{infonick}}</div>
+            <div class="iw-content-search">
+                <img ng-src="http://www.reepjyoti.com/puff/app/avatars/{{infoavatar}}.jpg" alt="avatar">
+                <p>{{infomessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div ng-if="user.sex==''" class="notifications">
+    <div class="iw-container">
+        <div class="row"> <h1> Select your gender </h1></div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#297add; font-size: 1.3em" ng-click="setSex('male')"><span class="glyphicon glyphicon-king"></span></button>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#ee989a; font-size: 1.3em" ng-click="setSex('female')"><span class="glyphicon glyphicon-queen"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="evaluation_flag" class="notifications">
+    <div class="iw-container">
+        <div class="row"> <h1> Have you enjoyed your puffing companion? </h1></div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#297add" ng-click="evaluate(1)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <button style="color:#ee989a" ng-click="evaluate(-1)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="newcompanion_flag" class="notifications" ng-click="remove_newcompanion_flag()">
+    <div class="iw-container">
+        {{window_message}}
+    </div>
+</div>

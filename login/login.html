@@ -1,0 +1,63 @@
+
+<div ng-if=already_registered class="div_login">
+    <div class="row" ng-if="success">
+        <div class="alert alert-success">
+            <strong>Success!</strong> Execute your first login and Puff!!!
+        </div>
+    </div>
+    <div class="row" ng-if="error">
+        <div class="col-xs-12 col-sm-12 col-md-12" >
+            <div class="alert alert-danger alert-dismissible" role="alert">Login failed! {{ error }}</div>
+        </div>
+    </div>
+    <div class="row" ng-if="error_fill_login.bool">
+        <div class="col-xs-12 col-sm-12 col-md-12" >
+            <div class="alert alert-danger alert-dismissible" role="alert">Login failed! {{ error_fill_login.value }}</div>
+        </div>
+    </div>
+    <h1 class="login_signup_header">Log-in</h1>
+    <form role="form" ng-submit="login()">
+        <div class="field-wrap">
+            <input type="email" required autocomplete="off" placeholder="E-mail*" ng-model="user.email"/>
+        </div>
+        <div class="field-wrap">
+            <input type="password" required autocomplete="off" placeholder="Password*" ng-model="user.password"/>
+        </div>
+        <div class="field-wrap">
+            <button type="submit" class="btn btn-link">Confirm</button>
+        </div>
+    </form>
+    <div class="row"><button ng-click="" class="btn btn-link bsmall">Recover your password</button></div>
+    <div class="row"><button ng-click="change_already_registered()" class="btn btn-link bsmall">Sign up</button></div>
+</div>
+
+<div ng-if=!already_registered class="div_login">
+    <div class="row" ng-if="error_signup.bool">
+        <div class="col-xs-12 col-sm-12 col-md-12" >
+            <div class="alert alert-danger alert-dismissible" role="alert">Signup Failed! {{error_signup.value}}</div>
+        </div>
+    </div>
+    <h1 class="login_signup_header">Sign up</h1>
+    <form role="formm" ng-submit="signUp();">
+        <div class="field-wrap">
+            <input type="email" required autocomplete="off" placeholder="E-mail*" ng-model="new_user.email"/>
+        </div>
+        <div class="field-wrap">
+            <input type="text" required autocomplete="off" placeholder="Nickname*" ng-model="new_user.nick"/>
+        </div>
+        <div class="field-wrap">
+            <input type="password" required autocomplete="off" placeholder="Password* (minimum 6 characters)" ng-model="new_user.password"/>
+        </div>
+        <div class="field-wrap">
+            <input type="password" required autocomplete="off" placeholder="Repeat Password*" ng-model="new_user.confirm_password"/>
+        </div>
+        <div class="field-wrap">
+            <button type="submit" class="btn btn-link">Register</button>
+        </div>
+    </form>
+    <div class="row"><button ng-click="" class="btn btn-link bsmall">Sign in using Facebook credentials</button></div>
+    <div class="row"><button ng-click="change_already_registered()" class="btn btn-link bsmall">Log in</button></div>
+</div>
+
+
+

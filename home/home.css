@@ -1,0 +1,114 @@
+.off_div h1{
+    color: #308039;
+    font-size:7vw;
+    margin-top:4%;
+}
+
+.off_div h2{
+    color: #449f4e;
+    font-size:5vw;
+    margin-top:3%;
+}
+
+#home{
+    text-align:center;
+}
+
+#home button:hover{
+    background-color: white;
+}
+
+.off_div .change_user_state{
+    margin-top: 4%;
+    border-radius: 50%;
+    background-color:#449f4e;
+    font-size: 18vw;
+    padding: 5% 8% 2% 8%;
+}
+
+.on_div h1{
+    color: #d93320;
+    font-size:7vw;
+    margin-top:4%;
+}
+
+.on_div h2{
+    color: #d94224;
+    font-size:5vw;
+    margin-top:3%;
+}
+
+.on_div .change_user_state{
+    margin-top: 4%;
+    border-radius: 50%;
+    background-color:#d94224;
+    font-size: 18vw;
+    padding: 5% 8% 2% 8%;
+}
+.portlet-footer {
+    margin-top:4%;
+    margin-left:3%;
+    margin-right:3%;
+    padding: 10px 15px;
+}
+
+
+
+.pull-right{
+    margin-right: 46%;
+    margin-top: 2%;
+    font-size: 3.5vw;
+    border-radius: 50%;
+    background-color: #d94224;
+}
+
+@media screen and (min-width: 550px) {
+    .on_div .change_user_state{
+        margin-top: 4%;
+        border-radius: 50%;
+        background-color:#d94224;
+        font-size: 7em;
+        padding: 5% 8% 2% 8%;
+    }
+
+    .off_div .change_user_state{
+        margin-top: 4%;
+        border-radius: 50%;
+        background-color:#449f4e;
+        font-size: 7em;
+        padding: 5% 8% 2% 8%;
+    }
+
+    .off_div h1{
+        color: #308039;
+        font-size:2.8em;
+        margin-top:4%;
+    }
+
+    .off_div h2{
+        color: #449f4e;
+        font-size:2em;
+        margin-top:3%;
+    }
+    .on_div h1{
+        color: #d93320;
+        font-size:2.8em;
+        margin-top:4%;
+    }
+
+    .on_div h2{
+        color: #d94224;
+        font-size:2em;
+        margin-top:3%;
+    }
+
+
+
+}
+
+
+
+
+
+
+
